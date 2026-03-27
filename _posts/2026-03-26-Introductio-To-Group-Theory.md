@@ -23,8 +23,9 @@ A **Group** is some set $G$, along with a binary operation $\circ$ that conforms
 
 **Notation:** We write a Group as $(G, \circ)$ to explicitly specify both the set $G$ and the operation, or simply $G$ with any operation.
 
+**So what set G could be here? and what exactly is a binary operation?**
 ### The Set $G$
-The set $G$ can be any set as long as it is non-empty. Examples include:
+The set $G$ can be any set as long as it is **non-empty**. Examples include:
 * Hours in a clock form a set $H=\{0,1,2,...,11\}$
 * Integer set: $\mathbb{Z}=\{...,-2,-1,0,1,2,...\}$
 * Rational, Natural, Real, and Complex numbers: $\mathbb{R}, \mathbb{N}, \mathbb{Q}, \mathbb{C}$
@@ -36,6 +37,8 @@ The binary operation can be any function as long as it takes 2 inputs and produc
 * **Boolean Algebra:** XOR ($\oplus$), AND ($\land$), OR ($\lor$)
 * **Others:** $a\circ b=a^{b}$, or $a\circ b=a\times b+2a-3$
 
+The *reason* behind we use $\circ$ to denote the operation is that **we** don't actually *know* what operation yet.
+So what about **Axioms**?
 ---
 
 ### The 4 Axioms
@@ -121,21 +124,7 @@ Therefore, $g' = g''$, so every inverse for all $g \in G$ is unique.
 
 ## 4. Exercises
 
-Want to test your understanding? Try proving these properties based on the axioms we just covered:
+I think after all these definitions and examples, you can try proving these yourself! (Really easy, trust)
 
 * **Exercise 1:** Show that for all $a, b, c \in G$: If $a \circ b = a \circ c$, then $b = c$.
 * **Exercise 2:** Show that the equation $a \circ x = b$ always has a unique solution $x \in G$.
-<!-- ## 1. What is a Group?
-
-### Definition of a Group
-A Group is some set $G$, along with a binary operation $\circ$ that conforms to some Axioms. We write a Group as $(G, \circ)$ to explicitly specify both the set $G$ and the operation.
-
-This system must satisfy the following 4 Axioms:
-
-* **Closure:** For all $a, b \in G$, the result $a \circ b$ is also in $G$.
-* **Associativity:** For all $a, b, c \in G$:
-  $$(a \circ b) \circ c = a \circ (b \circ c)$$
-* **Identity Element:** There exists an element $e \in G$ such that:
-  $$a \circ e = a = e \circ a$$
-* **Inverse Element:** For every $a \in G$, there exists $a^{-1} \in G$ such that:
-  $$a \circ a^{-1} = e = a^{-1} \circ a$$ -->
