@@ -129,7 +129,9 @@ A group $(G, \circ)$ is called **Abelian** (or commutative) if it satisfies one 
 * **Abelian:** Integers $(\mathbb{Z}, +)$ because $1+2=2+1$. The same applies to $(\mathbb{R}, +)$, $(\mathbb{Q}, +)$, and $(\mathbb{C}, +)$. The Multiplicative Group modulo $p$, denoted as $(\mathbb{Z}_{p},\times)$, is also Abelian because multiplication is commutative.
 * **Non-Abelian:** Matrix Multiplication, because usually $A \times B \neq B \times A$.
 
-Ye that's it, we don't have much things to talk about abelian's own *properties* but it's **commutativity** appears **alot** for later *groups* and *theorems*.
+* Ye that's it, we don't have much things to talk about abelian's own *properties* but it's **commutativity** appears **alot** for later *groups* and *theorems*.
+
+
 ---
 
 ## 3. Subgroups
