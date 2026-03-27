@@ -142,5 +142,20 @@ Instead of checking all 4 group axioms again, we only need to verify two conditi
 
 ### Examples of Subgroups
 * **Even Integers:** Consider the set $2\mathbb{Z} = \{...,-4,-2,0,2,4,...\}$. This set forms a group under addition, denoted as $(2\mathbb{Z}, +)$. Since every even integer is also an integer ($2\mathbb{Z} \subseteq \mathbb{Z}$), we say that $(2\mathbb{Z}, +)$ is a subgroup of $(\mathbb{Z}, +)$.
-* **Integers Modulo 6:** Let $G = \mathbb{Z}_{6} = \{0,1,2,3,4,5\}$ under addition. The subsets $H=\{0,3\}$ and $K=\{0\}$ are both subgroups of $G$. 
+* **Integers Modulo 6:** Let $G = \mathbb{Z}_{6} = \{0,1,2,3,4,5\}$ under addition. The subsets $H={0,3}$ and $K=\{0\}$ are both subgroups of $G$. 
   * Notice that the subset $K=\{e_G\}$ is always a subgroup of $G$. We call this a **trivial subgroup**, while a proper subset $H$ is called a **proper subgroup**.
+
+### Properties of Subgroups
+**Proposition 1:** The identity of $G$ ($e_G$) is in $H$ ($e_H$).
+
+**Proof:**
+It is quite easy to verify that the identity of $G$ is in $H$.
+Assume that $a \in H$ where $a \neq e_G$. [cite: 291] Since $H$ is a group, $a$ must be in $H$ and so is $a^{-1}$. [cite: 291] Their operation results in the identity of $H$:
+$$a \circ a^{-1} = e_H$$
+Looking from the group $G$ perspective, $a \circ a^{-1}$ is also equal to $e_G$.
+Therefore:
+$$e_H = e_G \in H$$
+
+*(Note: A subset $H \subseteq G$ could be a group without being a subgroup of $G$, but if it is a subgroup, it will share the identity of $G$).*
+
+---
