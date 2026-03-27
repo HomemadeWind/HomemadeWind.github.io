@@ -6,15 +6,7 @@ tags: [group-theory, abstract-algebra, seminar]
 math: true
 ---
 
-Recently, I presented a seminar about Group Theory. I'd recommend you read the full original slides for more context but since it's long so I'll just summarize the contents here.
-<!-- 
----
-title: "Group Theory Part 1: What is a Group?"
-date: 2026-03-27 19:45:00 +0700
-categories: [Mathematics, Algebra]
-tags: [group-theory, mathematics, seminar]
-math: true
---- -->
+Recently, I presented a seminar about Group Theory. I'd recommend you read the full [original slides](/assets/pdf/Part_1_Group_Theory.pdf) for more context but since it's long so I'll just summarize the contents here.
 
 ## 1. What is a Group?
 
@@ -23,7 +15,7 @@ A **Group** is some set $G$, along with a binary operation $\circ$ that conforms
 
 **Notation:** We write a Group as $(G, \circ)$ to explicitly specify both the set $G$ and the operation, or simply $G$ with any operation.
 
-**So what set G could be here? and what exactly is a binary operation?**
+**So what kind of set G could be here? and what exactly is a binary operation?**
 ### The Set $G$
 The set $G$ can be any set as long as it is **non-empty**. Examples include:
 * Hours in a clock form a set $H=\{0,1,2,...,11\}$
@@ -39,6 +31,7 @@ The binary operation can be any function as long as it takes 2 inputs and produc
 
 The *reason* behind we use $\circ$ to denote the operation is that **we** don't actually *know* what operation yet.
 So what about **Axioms**?
+
 ---
 
 ### The 4 Axioms
