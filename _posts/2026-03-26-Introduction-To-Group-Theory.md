@@ -16,6 +16,7 @@ A **Group** is some set $G$, along with a binary operation $\circ$ that conforms
 **Notation:** We write a Group as $(G, \circ)$ to explicitly specify both the set $G$ and the operation, or simply $G$ with any operation.
 
 **So what kind of set G could be here? and what exactly is a binary operation?**
+
 ### The Set $G$
 The set $G$ can be any set as long as it is **non-empty**. Examples include:
 * Hours in a clock form a set $H=\{0,1,2,...,11\}$
@@ -47,9 +48,9 @@ To be a valid group, this system must satisfy the following 4 Axioms:
 
 ---
 
-## 2. Examples of Groups (and Non-Groups)
+### Examples of Groups (and Non-Groups)
 
-### Example 1: Integers under Addition $(\mathbb{Z}, +)$
+**Example 1: Integers under Addition $(\mathbb{Z}, +)$**
 Let's test if Integers $\mathbb{Z}=\{...,-1,0,1,...\}$ under Addition ($+$) follow the rules.
 
 * **1. Closure:** Does the sum of 2 integers still stay inside the set? 
@@ -63,7 +64,7 @@ Let's test if Integers $\mathbb{Z}=\{...,-1,0,1,...\}$ under Addition ($+$) foll
 
 **Conclusion:** $(\mathbb{Z},+)$ is indeed a group.
 
-### Example 2: Natural Numbers under Addition $(\mathbb{N}, +)$
+**Example 2: Natural Numbers under Addition $(\mathbb{N}, +)$**
 We proved $(\mathbb{Z},+)$ is a group. What about $(\mathbb{N}=\{0,1,2,...\},+)$? Let's check it out:
 
 * **Closure, Associativity, Identity:** Similar to $(\mathbb{Z}, +)$.
@@ -71,7 +72,7 @@ We proved $(\mathbb{Z},+)$ is a group. What about $(\mathbb{N}=\{0,1,2,...\},+)$
 
 **Conclusion:** $(\mathbb{N}, +)$ is **not** a group.
 
-### Example 3: Finite Sets - Integers Modulo $n$ $(\mathbb{Z}_{n}, +)$
+**Example 3: Finite Sets - Integers Modulo $n$ $(\mathbb{Z}_{n}, +)$**
 What about finite sets? Consider the set Integer modulo $n$ ($\mathbb{Z}_{n}$) under the addition operator. Let's test if it is a group:
 
 * **Closure, Associativity, Identity:** Similar to $(\mathbb{Z}, +)$.
@@ -83,28 +84,21 @@ What about finite sets? Consider the set Integer modulo $n$ ($\mathbb{Z}_{n}$) u
 
 ---
 
-## 3. Properties of a Group
-
+### Properties of a Group
 Groups share several core properties. We'll prove the first two and leave the rest as exercises.
 
 * **Uniqueness:** The Identity element ($e$) and Inverses ($a^{-1}$) are unique.
 * **Cancellation Law:** For all $a, b, c \in G$: If $a \circ b = a \circ c$, then $b = c$.
 * **Solvability:** The equation $a \circ x = b$ always has a unique solution $x \in G$.
 
-### Proof: The identity element is unique
-**Proposition 1:** The identity element of a group is unique.
-
-**Proof:** Suppose $e$ and $e'$ are both identity elements in $G$.
+**Proof: The identity element is unique**
+Suppose $e$ and $e'$ are both identity elements in $G$.
 * $e \circ e' = e'$ (treating $e$ as the identity)
 * $e \circ e' = e$ (treating $e'$ as the identity)
-
 Combine the two results: $e' = e \circ e' = e$. Therefore, $e = e'$, so the identity is unique.
 
-### Proof: The inverses are unique
-**Proposition 2:** The inverses in a group are unique.
-
-**Proof:** Suppose $g'$ and $g''$ are both inverses of element $g$ in $G$. We need to show that $g' = g''$.
-
+**Proof: The inverses are unique**
+Suppose $g'$ and $g''$ are both inverses of element $g$ in $G$. We need to show that $g' = g''$.
 We have:
 * $g \circ g' = e = g' \circ g$
 * $g \circ g'' = e = g'' \circ g$
@@ -115,9 +109,38 @@ Therefore, $g' = g''$, so every inverse for all $g \in G$ is unique.
 
 ---
 
-## 4. Exercises
+### Exercises
 
 I think after all these definitions and examples, you can try proving these yourself! (Really easy, trust)
 
 * **Exercise 1:** Show that for all $a, b, c \in G$: If $a \circ b = a \circ c$, then $b = c$.
 * **Exercise 2:** Show that the equation $a \circ x = b$ always has a unique solution $x \in G$.
+
+## 2. Abelian Groups
+
+A group $(G, \circ)$ is called **Abelian** (or commutative) if it satisfies one extra axiom:
+
+5. **Commutativity:** For all $a, b \in G$:
+   $$a \circ b = b \circ a$$
+
+**Examples:**
+* **Abelian:** Integers $(\mathbb{Z}, +)$ because $1+2=2+1$. The same applies to $(\mathbb{R}, +)$, $(\mathbb{Q}, +)$, and $(\mathbb{C}, +)$. The Multiplicative Group modulo $p$, denoted as $(\mathbb{Z}_{p},\times)$, is also Abelian because multiplication is commutative.
+* **Non-Abelian:** Matrix Multiplication, because usually $A \times B \neq B \times A$.
+
+---
+
+## 3. Subgroups
+
+A **Subgroup** is a subset $H \subseteq G$ that forms a group in its own right under the same binary operation as $G$. In simpler terms, it's a group within a group. We write $H \le G$ to denote that $H$ is a subgroup of $G$.
+
+### The Subgroup Test
+Instead of checking all 4 group axioms again, we only need to verify two conditions for a non-empty subset $H$:
+1. **Closure:** $\forall a,b \in H \Rightarrow a \circ b \in H$
+2. **Inverses:** $\forall a \in H \Rightarrow a^{-1} \in H$
+
+*(Note: Properties like Associativity and Commutativity are automatically inherited from the parent group $G$.)*
+
+### Examples of Subgroups
+* **Even Integers:** Consider the set $2\mathbb{Z} = \{...,-4,-2,0,2,4,...\}$. This set forms a group under addition, denoted as $(2\mathbb{Z}, +)$. Since every even integer is also an integer ($2\mathbb{Z} \subseteq \mathbb{Z}$), we say that $(2\mathbb{Z}, +)$ is a subgroup of $(\mathbb{Z}, +)$.
+* **Integers Modulo 6:** Let $G = \mathbb{Z}_{6} = \{0,1,2,3,4,5\}$ under addition. The subsets $H=\{0,3\}$ and $K=\{0\}$ are both subgroups of $G$. 
+  * Notice that the subset $K=\{e_G\}$ is always a subgroup of $G$. We call this a **trivial subgroup**, while a proper subset $H$ is called a **proper subgroup**.
