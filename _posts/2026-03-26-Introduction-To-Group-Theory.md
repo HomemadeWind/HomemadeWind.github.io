@@ -1,5 +1,5 @@
 ---
-title: "Seminar: An Introduction to Group Theory"
+title: "An Introduction to Group Theory"
 date: 2026-03-27 19:25:00 +0700
 categories: [Cryptography, Seminar]
 tags: [group-theory, abstract-algebra, seminar]
