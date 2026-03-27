@@ -116,6 +116,8 @@ I think after all these definitions and examples, you can try proving these your
 * **Exercise 1:** Show that for all $a, b, c \in G$: If $a \circ b = a \circ c$, then $b = c$.
 * **Exercise 2:** Show that the equation $a \circ x = b$ always has a unique solution $x \in G$.
 
+---
+
 ## 2. Abelian Groups
 
 A group $(G, \circ)$ is called **Abelian** (or commutative) if it satisfies one extra axiom:
@@ -127,6 +129,7 @@ A group $(G, \circ)$ is called **Abelian** (or commutative) if it satisfies one 
 * **Abelian:** Integers $(\mathbb{Z}, +)$ because $1+2=2+1$. The same applies to $(\mathbb{R}, +)$, $(\mathbb{Q}, +)$, and $(\mathbb{C}, +)$. The Multiplicative Group modulo $p$, denoted as $(\mathbb{Z}_{p},\times)$, is also Abelian because multiplication is commutative.
 * **Non-Abelian:** Matrix Multiplication, because usually $A \times B \neq B \times A$.
 
+Ye that's it, we don't have much things to talk about abelian's own *properties* but it's **commutativity** appears **alot** for later *groups* and *theorems*.
 ---
 
 ## 3. Subgroups
@@ -156,6 +159,6 @@ Looking from the group $G$ perspective, $a \circ a^{-1}$ is also equal to $e_G$.
 Therefore:
 $$e_H = e_G \in H$$
 
-*(Note: A subset $H \subseteq G$ could be a group without being a subgroup of $G$, but if it is a subgroup, it will share the identity of $G$).*
+*(Note: A subset $H \subseteq G$ could be a group without being a subgroup of $G$).*
 
 ---
