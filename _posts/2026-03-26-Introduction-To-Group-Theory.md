@@ -121,11 +121,13 @@ I think after all these definitions and examples, you can try proving these your
 
 ## 2. Abelian Groups
 
+### Definition
 A group $(G, \circ)$ is called **Abelian** (or commutative) if it satisfies one extra axiom:
 
 5. **Commutativity:** For all $a, b \in G$:
    $$a \circ b = b \circ a$$
 
+### Examples
 **Examples:**
 * **Abelian:** Integers $(\mathbb{Z}, +)$ because $1+2=2+1$. The same applies to $(\mathbb{R}, +)$, $(\mathbb{Q}, +)$, and $(\mathbb{C}, +)$. The Multiplicative Group modulo $p$, denoted as $(\mathbb{Z}_{p},\times)$, is also Abelian because multiplication is commutative.
 * **Non-Abelian:** Matrix Multiplication, because usually $A \times B \neq B \times A$.
