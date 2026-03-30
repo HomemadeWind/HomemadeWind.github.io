@@ -81,7 +81,7 @@ What about finite sets? Consider the set Integer modulo $n$ ($\mathbb{Z}_{n}$) u
 What about finite sets? Consider the set Integer modulo $$n$$ ($$\mathbb{Z}_{n}$$) under the addition operator. Let's test if it is a group:
 
 * **Closure, Associativity, Identity:** Similar to ($$\mathbb{Z}, +$$).
-* **Inverse:** For any $$a \in \mathbb{Z}_{n}$$, we want $$b \in \mathbb{Z}_{n}$$such that$$a+b \equiv 0 \pmod{n}$$. Choose $$b=n-a$$. Then: $$a + (n - a) = n \equiv 0 \pmod{n}$$. So every element has an inverse.
+* **Inverse:** For any $$a \in \mathbb{Z}_{n}$$, we want $$b \in \mathbb{Z}_{n}$$ such that $$a+b \equiv 0 \pmod{n}$$. Choose $$b=n-a$$. Then: $$a + (n - a) = n \equiv 0 \pmod{n}$$. So every element has an inverse.
 
 **Conclusion:** ($$\mathbb{Z}_{n}, +$$) is a group.
 
