@@ -72,7 +72,8 @@ We proved $(\mathbb{Z},+)$ is a group. What about $(\mathbb{N}=\{0,1,2,...\},+)$
 
 **Conclusion:** $(\mathbb{N}, +)$ is **not** a group.
 
-**Example 3: Finite Sets - Integers Modulo $n$ $(\mathbb{Z}_{n}, +)$**
+**Example 3: Finite Sets - Integers Modulo** $n$ $(\mathbb{Z}_{n}, +)$
+
 What about finite sets? Consider the set Integer modulo $n$ ($\mathbb{Z}_{n}$) under the addition operator. Let's test if it is a group:
 
 * **Closure, Associativity, Identity:** Similar to $(\mathbb{Z}, +)$.
@@ -80,7 +81,7 @@ What about finite sets? Consider the set Integer modulo $n$ ($\mathbb{Z}_{n}$) u
   $$a+(n-a)=n \equiv 0 \pmod{n}$$
   So every element has an inverse.
 
-**Conclusion:** $(\mathbb{Z}_{n},+)$ is a group.
+**Conclusion:** $(\mathbb{Z}_{n}, +)$ is a group.
 
 ---
 
