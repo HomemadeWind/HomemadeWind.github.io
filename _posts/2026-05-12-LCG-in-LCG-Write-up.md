@@ -173,7 +173,6 @@ s_3 &\equiv a_{3} \cdot s_2 + b_{3} \pmod{p} && \text{(Pair } 3\text{)} \\
 s_4 &\equiv a_{4} \cdot s_3 + b_{4} \pmod{p} && \text{(Pair } 10\text{)} \\
 s_5 &\equiv a_{5} \cdot s_4 + b_{5} \pmod{p} && \text{(Pair } 8\text{)} \\
 s_6 &\equiv a_{6} \cdot s_5 + b_{6} \pmod{p} && \text{(Pair } 5\text{)} \\
-% &\vdots \\
 s_7 &\equiv a_{7} \cdot s_6 + b_{7} \pmod{p} && \text{(Pair } 2\text{)} \\
 \hline
 s_8 &\equiv a_{1} \cdot s_7 + b_{1} \pmod{p} && \text{(Pair } 1\text{)} \text{ (Cycle Repeats)} \\
