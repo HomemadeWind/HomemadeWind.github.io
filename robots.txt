@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /assets/
+Allow: /
+
 Sitemap: https://homemadewind.github.io/sitemap.xml
