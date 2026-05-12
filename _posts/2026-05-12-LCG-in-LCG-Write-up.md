@@ -202,12 +202,6 @@ a_6 &\equiv (s_9 - s_2) \cdot (s_8 - s_1)^{-1} \pmod{p} \\
 b_6 &\equiv s_9 - a_6 \cdot s_8 \pmod{p}
 \end{aligned}
 $$
-<!-- 
-Recovering a2: a2 = (s9 - s2) * inverse(s8 - s1) mod p
-Recovering b2: b2 = (s9 - a2 * s8) mod p
-
-Recovering a3: a3 = (s10 - s3) * inverse(s9 - s2) mod p
-Recovering b3: b3 = (s10 - a3 * s9) mod p -->
 
 ...
 
