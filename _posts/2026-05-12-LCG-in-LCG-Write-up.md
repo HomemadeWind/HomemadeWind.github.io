@@ -134,7 +134,18 @@ Do you realize what does that mean?
 For every 7 steps in the LCG, the inner LCG loops itself resulting in re-running the same patterns of choosing pairs EXACTLY like the previous steps
 Example:
 
-Pair 1 -> Pair 6 -> Pair 3 -> Pair 10 -> Pair 8 -> Pair 5 -> Pair 2 -> Pair 1 -> ....
+<!-- Pair 1 -> Pair 6 -> Pair 3 -> Pair 10 -> Pair 8 -> Pair 5 -> Pair 2 -> Pair 1 -> .... -->
+
+graph LR
+    P1((Pair 1)) --> P6((Pair 6))
+    P6 --> P3((Pair 3))
+    P3 --> P10((Pair 10))
+    P10 --> P8((Pair 8))
+    P8 --> P5((Pair 5))
+    P5 --> P2((Pair 2))
+    P2 --> P1
+    
+    style P1 fill:#f9f,stroke:#333,stroke-width:2px
 
 Since we have 30 leaks, each Pair in the sequence will appear at least 4 times. (Actually 2 is enough)
 You know the drill
