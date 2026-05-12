@@ -139,7 +139,6 @@ Pair 1 -> Pair 6 -> Pair 3 -> Pair 10 -> Pair 8 -> Pair 5 -> Pair 2 -> Pair 1 ->
 Since we have 30 leaks, each Pair in the sequence will appear at least 4 times. (Actually 2 is enough)
 You know the drill
 
-Given leak = [s1, s2, s3, s4,..., s30]:
 <!-- ```
 s1 = a1 * s0 + b1 Pair 1 <-
 s2 = a2 * s1 + b2 Pair 6
@@ -152,18 +151,31 @@ s8 = a1 * s7 + b1 Pair 1 <-
 s9 = a2 * s8 + b2 Pair 6
 s10 = a3 * s9 + b3 Pair 3
 ``` -->
-$$\begin{aligned}
-s_1 &\equiv a_1 \cdot s_0 + b_1 \pmod{p} && \text{(Pair 1)} \\
-s_2 &\equiv a_6 \cdot s_1 + b_6 \pmod{p} && \text{(Pair 6)} \\
-s_3 &\equiv a_3 \cdot s_2 + b_3 \pmod{p} && \text{(Pair 3)} \\
-s_4 &\equiv a_{10} \cdot s_3 + b_{10} \pmod{p} && \text{(Pair 10)} \\
-s_5 &\equiv a_8 \cdot s_4 + b_8 \pmod{p} && \text{(Pair 8)} \\
-s_6 &\equiv a_5 \cdot s_5 + b_5 \pmod{p} && \text{(Pair 5)} \\
-s_7 &\equiv a_2 \cdot s_6 + b_2 \pmod{p} && \text{(Pair 2)} \\
+
+Given leak = $[s_1, s_2, s_3, \dots, s_{30}]$:
+
+$$
+\begin{aligned}
+s_1 &\equiv a_{idx_1} \cdot s_0 + b_{idx_1} \pmod{p} && \text{(Pair } idx_1\text{)} \\
+s_2 &\equiv a_{idx_2} \cdot s_1 + b_{idx_2} \pmod{p} && \text{(Pair } idx_2\text{)} \\
+s_3 &\equiv a_{idx_3} \cdot s_2 + b_{idx_3} \pmod{p} && \text{(Pair } idx_3\text{)} \\
+&\vdots \\
+s_7 &\equiv a_{idx_7} \cdot s_6 + b_{idx_7} \pmod{p} && \text{(Pair } idx_7\text{)} \\
 \hline
-s_8 &\equiv a_1 \cdot s_7 + b_1 \pmod{p} && \text{(Pair 1 - Cycle Repeats)} \\
-s_9 &\equiv a_6 \cdot s_8 + b_6 \pmod{p} && \text{(Pair 6)} \\
-\end{aligned}$$
+s_8 &\equiv a_{idx_1} \cdot s_7 + b_{idx_1} \pmod{p} && \text{(Cycle Repeats)} \\
+s_9 &\equiv a_{idx_2} \cdot s_8 + b_{idx_2} \pmod{p} && \dots
+\end{aligned}
+$$
+
+To recover the parameters for any specific pair $(a, b)$ that appears at least twice in the leak, we use two equations from the same cycle position (e.g., $s_2$ and $s_9$):
+
+$$
+\begin{aligned}
+&\text{Recovering the pair used at step } i \text{ and } i+7: \\
+a &\equiv (s_{i+7} - s_{i}) \cdot (s_{i+6} - s_{i-1})^{-1} \pmod{p} \\
+b &\equiv s_{i} - a \cdot s_{i-1} \pmod{p}
+\end{aligned}
+$$
 
 <!-- 
 Recovering a2: a2 = (s9 - s2) * inverse(s8 - s1) mod p
@@ -171,15 +183,7 @@ Recovering b2: b2 = (s9 - a2 * s8) mod p
 
 Recovering a3: a3 = (s10 - s3) * inverse(s9 - s2) mod p
 Recovering b3: b3 = (s10 - a3 * s9) mod p -->
-$$\begin{aligned}
-&\text{Recovering Pair 6 } (a_6, b_6): \\
-a_6 &\equiv (s_9 - s_2) \cdot (s_8 - s_1)^{-1} \pmod{p} \\
-b_6 &\equiv s_9 - a_6 \cdot s_8 \pmod{p} \\
-\\
-&\text{Recovering Pair 3 } (a_3, b_3): \\
-a_3 &\equiv (s_{10} - s_3) \cdot (s_9 - s_2)^{-1} \pmod{p} \\
-b_3 &\equiv s_{10} - a_3 \cdot s_9 \pmod{p}
-\end{aligned}$$
+
 ...
 
 
