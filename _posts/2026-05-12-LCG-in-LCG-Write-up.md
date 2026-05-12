@@ -7,7 +7,7 @@ math: true
 mermaid: true
 ---
 
-# LCG in LCG Write-up
+<!-- # LCG in LCG Write-up -->
 
 On May 9th and 10th, my club, BKISC, hosted the BKISC CTF 2026. I had the pleasure of contributing to the event as the author of a cryptography challenge titled "LCG in LCG".
 
@@ -140,7 +140,7 @@ Since we have 30 leaks, each Pair in the sequence will appear at least 4 times. 
 You know the drill
 
 Given leak = [s1, s2, s3, s4,..., s30]:
-```
+<!-- ```
 s1 = a1 * s0 + b1 Pair 1 <-
 s2 = a2 * s1 + b2 Pair 6
 s3 = a3 * s2 + b3 Pair 3
@@ -151,15 +151,35 @@ s7 = a7 * s6 + b7 Pair 2
 s8 = a1 * s7 + b1 Pair 1 <-
 s9 = a2 * s8 + b2 Pair 6
 s10 = a3 * s9 + b3 Pair 3
-```
+``` -->
+$$\begin{aligned}
+s_1 &\equiv a_1 \cdot s_0 + b_1 \pmod{p} && \text{(Pair 1)} \\
+s_2 &\equiv a_6 \cdot s_1 + b_6 \pmod{p} && \text{(Pair 6)} \\
+s_3 &\equiv a_3 \cdot s_2 + b_3 \pmod{p} && \text{(Pair 3)} \\
+s_4 &\equiv a_{10} \cdot s_3 + b_{10} \pmod{p} && \text{(Pair 10)} \\
+s_5 &\equiv a_8 \cdot s_4 + b_8 \pmod{p} && \text{(Pair 8)} \\
+s_6 &\equiv a_5 \cdot s_5 + b_5 \pmod{p} && \text{(Pair 5)} \\
+s_7 &\equiv a_2 \cdot s_6 + b_2 \pmod{p} && \text{(Pair 2)} \\
+\hline
+s_8 &\equiv a_1 \cdot s_7 + b_1 \pmod{p} && \text{(Pair 1 - Cycle Repeats)} \\
+s_9 &\equiv a_6 \cdot s_8 + b_6 \pmod{p} && \text{(Pair 6)} \\
+\end{aligned}$$
 
-
+<!-- 
 Recovering a2: a2 = (s9 - s2) * inverse(s8 - s1) mod p
 Recovering b2: b2 = (s9 - a2 * s8) mod p
 
 Recovering a3: a3 = (s10 - s3) * inverse(s9 - s2) mod p
-Recovering b3: b3 = (s10 - a3 * s9) mod p
-
+Recovering b3: b3 = (s10 - a3 * s9) mod p -->
+$$\begin{aligned}
+&\text{Recovering Pair 6 } (a_6, b_6): \\
+a_6 &\equiv (s_9 - s_2) \cdot (s_8 - s_1)^{-1} \pmod{p} \\
+b_6 &\equiv s_9 - a_6 \cdot s_8 \pmod{p} \\
+\\
+&\text{Recovering Pair 3 } (a_3, b_3): \\
+a_3 &\equiv (s_{10} - s_3) \cdot (s_9 - s_2)^{-1} \pmod{p} \\
+b_3 &\equiv s_{10} - a_3 \cdot s_9 \pmod{p}
+\end{aligned}$$
 ...
 
 
