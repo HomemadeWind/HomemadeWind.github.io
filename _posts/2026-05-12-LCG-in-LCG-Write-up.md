@@ -129,81 +129,102 @@ Output:
 Notice that the sequence run into a loop after evaluating LCG 7 times.
 Do you realize what does that mean?
 
-## Recovering (a,b) used in list_ab
+## Recovering the $(a,b)$ pairs
 
-For every 7 steps in the LCG, the inner LCG loops itself resulting in re-running the same patterns of choosing pairs EXACTLY like the previous steps
-Example:
+Since the inner LCG has period **7**, it always chooses the same sequence of pairs every 7 steps:
 
-<!-- Pair 1 -> Pair 6 -> Pair 3 -> Pair 10 -> Pair 8 -> Pair 5 -> Pair 2 -> Pair 1 -> .... -->
+```text
+Pair 1 → Pair 6 → Pair 3 → Pair 10 → Pair 8 → Pair 5 → Pair 2
+            ↑                                   |
+            └───────────────────────────────────┘
+```
 
-graph LR
-    P1((Pair 1)) --> P6((Pair 6))
-    P6 --> P3((Pair 3))
-    P3 --> P10((Pair 10))
-    P10 --> P8((Pair 8))
-    P8 --> P5((Pair 5))
-    P5 --> P2((Pair 2))
-    P2 --> P1
-    
-    style P1 fill:#f9f,stroke:#333,stroke-width:2px
+As a result, every pair $(a,b)$ appears multiple times in the leaked sequence. Since we are given 30 leaked states, each pair is encountered at least four times (although two occurrences are already sufficient).
 
-Since we have 30 leaks, each Pair in the sequence will appear at least 4 times. (Actually 2 is enough)
-You know the drill
+Let the leaked states be
 
-<!-- ```
-s1 = a1 * s0 + b1 Pair 1 <-
-s2 = a2 * s1 + b2 Pair 6
-s3 = a3 * s2 + b3 Pair 3
-s4 = a4 * s3 + b4 Pair 10
-s5 = a5 * s4 + b5 Pair 8
-s6 = a6 * s5 + b6 Pair 5
-s7 = a7 * s6 + b7 Pair 2
-s8 = a1 * s7 + b1 Pair 1 <-
-s9 = a2 * s8 + b2 Pair 6
-s10 = a3 * s9 + b3 Pair 3
-``` -->
+$$
+[s_1,s_2,\ldots,s_{30}].
+$$
 
-Given leak = $[s_1, s_2, s_3, \dots, s_{30}]$:
+During the first cycle, we have
 
 $$
 \begin{aligned}
-s_1 &\equiv a_{1} \cdot s_0 + b_{1} \pmod{p} && \text{(Pair } 1\text{)} \\
-s_2 &\equiv a_{2} \cdot s_1 + b_{2} \pmod{p} && \text{(Pair } 6\text{)} \\
-s_3 &\equiv a_{3} \cdot s_2 + b_{3} \pmod{p} && \text{(Pair } 3\text{)} \\
-s_4 &\equiv a_{4} \cdot s_3 + b_{4} \pmod{p} && \text{(Pair } 10\text{)} \\
-s_5 &\equiv a_{5} \cdot s_4 + b_{5} \pmod{p} && \text{(Pair } 8\text{)} \\
-s_6 &\equiv a_{6} \cdot s_5 + b_{6} \pmod{p} && \text{(Pair } 5\text{)} \\
-s_7 &\equiv a_{7} \cdot s_6 + b_{7} \pmod{p} && \text{(Pair } 2\text{)} \\
-\hline
-s_8 &\equiv a_{1} \cdot s_7 + b_{1} \pmod{p} && \text{(Pair } 1\text{)} \text{ (Cycle Repeats)} \\
-s_9 &\equiv a_{2} \cdot s_8 + b_{2} \pmod{p} && \dots
+s_1 &\equiv a_1s_0+b_1 \pmod p &&(\text{Pair }1)\\
+s_2 &\equiv a_2s_1+b_2 \pmod p &&(\text{Pair }6)\\
+s_3 &\equiv a_3s_2+b_3 \pmod p &&(\text{Pair }3)\\
+s_4 &\equiv a_4s_3+b_4 \pmod p &&(\text{Pair }10)\\
+s_5 &\equiv a_5s_4+b_5 \pmod p &&(\text{Pair }8)\\
+s_6 &\equiv a_6s_5+b_6 \pmod p &&(\text{Pair }5)\\
+s_7 &\equiv a_7s_6+b_7 \pmod p &&(\text{Pair }2).
 \end{aligned}
 $$
 
-To recover the parameters for any specific pair $(a, b)$ that appears at least twice in the leak, we use two equations from the same cycle position (e.g., $s_2$ and $s_9$):
+Seven steps later, the exact same pairs are used again:
 
 $$
 \begin{aligned}
-&\text{Recovering the pair used at step } i \text{ and } i+7: \\
-a &\equiv (s_{i+7} - s_{i}) \cdot (s_{i+6} - s_{i-1})^{-1} \pmod{p} \\
-b &\equiv s_{i} - a \cdot s_{i-1} \pmod{p}
+s_8 &\equiv a_1s_7+b_1 \pmod p,\\
+s_9 &\equiv a_2s_8+b_2 \pmod p,\\
+&\ \vdots
 \end{aligned}
 $$
 
-Note that we **don't know** $$s_0$$, so $$i \ge 2$$ must be *true*.
-
-**Example: Recovering the parameters for Pair 6**
-
-Using the states from the first and second cycles ($i=2$ and $i=9$):
+Now consider any pair that appears at positions $i$ and $i+7$:
 
 $$
-\begin{aligned} 
-a_6 &\equiv (s_9 - s_2) \cdot (s_8 - s_1)^{-1} \pmod{p} \\
-b_6 &\equiv s_9 - a_6 \cdot s_8 \pmod{p}
+\begin{aligned}
+s_i &= as_{i-1}+b,\\
+s_{i+7} &= as_{i+6}+b.
 \end{aligned}
 $$
 
-...
+Subtracting the two equations eliminates $b$:
+
+$$
+s_{i+7}-s_i
+=
+a(s_{i+6}-s_{i-1}),
+$$
+
+which immediately gives
+
+$$
+a
+\equiv
+(s_{i+7}-s_i)
+(s_{i+6}-s_{i-1})^{-1}
+\pmod p.
+$$
+
+Once $a$ is known, we recover $b$ by substituting it back into either equation:
+
+$$
+b
+\equiv
+s_i-as_{i-1}
+\pmod p.
+$$
+
+The only restriction is that we cannot choose $i=1$, since $s_0$ is unknown. Therefore, any $i \ge 2$ works.
+
+### Example
+
+To recover the parameters corresponding to **Pair 6**, we use the two occurrences at $s_2$ and $s_9$:
+
+$$
+\begin{aligned}
+a_6
+&\equiv
+(s_9-s_2)(s_8-s_1)^{-1}
+\pmod p,\\
+b_6
+&\equiv
+s_9-a_6s_8
+\pmod p.
+\end{aligned}
+$$
 
 
 ## Recover flag
