@@ -134,9 +134,9 @@ Do you realize what does that mean?
 Since the inner LCG has period **7**, it always chooses the same sequence of pairs every 7 steps:
 
 ```text
-Pair 1 → Pair 6 → Pair 3 → Pair 10 → Pair 8 → Pair 5 → Pair 2
-            ↑                                   |
-            └───────────────────────────────────┘
+Pair 1 → Pair 6 → Pair 3 → Pair 10 → Pair 8 → Pair 5 → Pair 2 → Pair 1 → ...
+   |                                                              ↑
+   └──────────────────────────────────────────────────────────────┘
 ```
 
 As a result, every pair $(a,b)$ appears multiple times in the leaked sequence. Since we are given 30 leaked states, each pair is encountered at least four times (although two occurrences are already sufficient).
