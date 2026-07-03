@@ -91,12 +91,14 @@ Groups share several core properties. We'll prove the first two and leave the re
 * **Solvability:** The equation $a \circ x = b$ always has a unique solution $x \in G$.
 
 **Proof: The identity element is unique**
+
 Suppose $e$ and $e'$ are both identity elements in $G$.
 * $e \circ e' = e'$ (treating $e$ as the identity)
 * $e \circ e' = e$ (treating $e'$ as the identity)
 Combine the two results: $e' = e \circ e' = e$. Therefore, $e = e'$, so the identity is unique.
 
 **Proof: The inverses are unique**
+
 Suppose $g'$ and $g''$ are both inverses of element $g$ in $G$. We need to show that $g' = g''$.
 We have:
 * $g \circ g' = e = g' \circ g$
@@ -262,11 +264,38 @@ Notice that the order of an element is exactly the number of distinct elements i
 
 ---
 
-### Important Properties
+### Properties of Cyclic Groups
 
-Cyclic groups enjoy several useful properties.
+Two important properties of cyclic groups are:
 
 - Every cyclic group is **Abelian**.
 - Every subgroup of a cyclic group is itself **cyclic**.
 
-These facts are surprisingly powerful and appear frequently throughout abstract algebra and cryptography.
+**Proof: Every cyclic group is Abelian**
+
+Suppose $a,b \in G$ and $G = \langle g\rangle$.
+
+Then there exist integers $m,n$ such that $a=g^m$ and $b=g^n$. Therefore,
+
+* $ab=g^mg^n=g^{m+n}=g^{n+m}=g^ng^m=ba$.
+
+Therefore, $ab=ba$ for all $a,b\in G$. Hence, $G$ is Abelian.
+
+**Proof idea: Every subgroup of a cyclic group is itself cyclic**
+
+The complete proof is slightly beyond the scope of this post, so I'll only present the main idea.
+
+Let $H \le G$. If $H=\lbrace e\rbrace$, then it is cyclic. Otherwise, choose the smallest positive integer $k$ such that $a^k \in H$.
+
+One can then show that every element of $H$ is a power of $a^k$. Hence,
+
+$$
+H=\langle a^k\rangle.
+$$
+
+These properties are fundamental in abstract algebra and appear frequently throughout modern cryptography.
+
+If you're interested in a complete proof, see:
+
+> Thomas W. Judson, *Abstract Algebra: Theory and Applications*, Theorem 4.10 (p. 48).
+
