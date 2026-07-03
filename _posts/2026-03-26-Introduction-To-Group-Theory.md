@@ -156,7 +156,7 @@ Instead of checking all 4 group axioms again, we only need to verify two conditi
 
 **Proof:**
 It is quite easy to verify that the identity of $G$ is in $H$.
-Assume that $a \in H$ where $a \neq e_G$. [cite: 291] Since $H$ is a group, $a$ must be in $H$ and so is $a^{-1}$. [cite: 291] Their operation results in the identity of $H$:
+Assume that $a \in H$ where $a \neq e_G$. Since $H$ is a group, $a$ must be in $H$ and so is $a^{-1}$. Their operation results in the identity of $H$:
 $$a \circ a^{-1} = e_H$$
 Looking from the group $G$ perspective, $a \circ a^{-1}$ is also equal to $e_G$.
 Therefore:
