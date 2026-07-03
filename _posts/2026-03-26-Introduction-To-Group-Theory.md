@@ -19,7 +19,7 @@ A **Group** is some set $G$, along with a binary operation $\circ$ that conforms
 
 ### The Set $G$
 The set $G$ can be any set as long as it is **non-empty**. Examples include:
-* Hours in a clock form a set $H=\{0,1,2,...,11\}$
+* Hours in a clock form a set $H=\lbrace0,1,2,\ldots,11\rbrace$
 * Integer set: $\mathbb{Z}=\{...,-2,-1,0,1,2,...\}$
 * Rational, Natural, Real, and Complex numbers: $\mathbb{R}, \mathbb{N}, \mathbb{Q}, \mathbb{C}$
 * Even numbers $2\mathbb{Z}=\{...,-2,0,2,...\}$
