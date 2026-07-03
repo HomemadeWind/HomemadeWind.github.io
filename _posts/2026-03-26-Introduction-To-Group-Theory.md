@@ -19,10 +19,10 @@ A **Group** is some set $G$, along with a binary operation $\circ$ that conforms
 
 ### The Set $G$
 The set $G$ can be any set as long as it is **non-empty**. Examples include:
-* Hours in a clock form a set $H=\lbrace0,1,2,\ldots,11\rbrace$
-* Integer set: $\mathbb{Z}=\{...,-2,-1,0,1,2,...\}$
-* Rational, Natural, Real, and Complex numbers: $\mathbb{R}, \mathbb{N}, \mathbb{Q}, \mathbb{C}$
-* Even numbers $2\mathbb{Z}=\{...,-2,0,2,...\}$
+* Hours on a clock form the set $H=\lbrace0,1,2,\ldots,11\rbrace$
+* The integers: $\mathbb{Z}=\lbrace\ldots,-2,-1,0,1,2,\ldots\rbrace$
+* The rational, natural, real, and complex numbers: $\mathbb{Q},\mathbb{N},\mathbb{R},\mathbb{C}$
+* The even integers: $2\mathbb{Z}=\lbrace\ldots,-2,0,2,\ldots\rbrace$
 
 ### The Binary Operation
 The binary operation can be any function as long as it takes 2 inputs and produces 1 output, e.g., $f(a,b)=c$ (from which the name "binary"). Examples include:
@@ -51,7 +51,7 @@ To be a valid group, this system must satisfy the following 4 Axioms:
 ### Examples of Groups (and Non-Groups)
 
 **Example 1: Integers under Addition $(\mathbb{Z}, +)$**
-Let's test if Integers $\mathbb{Z}=\{...,-1,0,1,...\}$ under Addition ($+$) follow the rules.
+Let's test if Integers $\mathbb{Z}=\lbrace\ldots,-1,0,1,\ldots\rbrace$ under Addition ($+$) follow the rules.
 
 * **1. Closure:** Does the sum of 2 integers still stay inside the set? 
   * *Check:* $5+(-3)=2$. Is 2 an integer? Yes. You can't add two whole numbers and suddenly get a fraction (like 2.5).
@@ -65,7 +65,7 @@ Let's test if Integers $\mathbb{Z}=\{...,-1,0,1,...\}$ under Addition ($+$) foll
 **Conclusion:** $(\mathbb{Z},+)$ is indeed a group.
 
 **Example 2: Natural Numbers under Addition $(\mathbb{N}, +)$**
-We proved $(\mathbb{Z},+)$ is a group. What about $(\mathbb{N}=\{0,1,2,...\},+)$? Let's check it out:
+We proved $(\mathbb{Z},+)$ is a group. What about $(\mathbb{N}=\lbrace0,1,2,\ldots\rbrace,+)$? Let's check it out:
 
 * **Closure, Associativity, Identity:** Similar to $(\mathbb{Z}, +)$.
 * **Inverse:** Are there inverses for every $a \in \mathbb{N}$? Unfortunately no, there's no number in $\mathbb{N}$ that satisfies: $1+x=0$.
@@ -147,9 +147,9 @@ Instead of checking all 4 group axioms again, we only need to verify two conditi
 *(Note: Properties like Associativity and Commutativity are automatically inherited from the parent group $G$.)*
 
 ### Examples of Subgroups
-* **Even Integers:** Consider the set $2\mathbb{Z} = \{...,-4,-2,0,2,4,...\}$. This set forms a group under addition, denoted as $(2\mathbb{Z}, +)$. Since every even integer is also an integer ($2\mathbb{Z} \subseteq \mathbb{Z}$), we say that $(2\mathbb{Z}, +)$ is a subgroup of $(\mathbb{Z}, +)$.
-* **Integers Modulo 6:** Let $G = \mathbb{Z}_{6} = \{0,1,2,3,4,5\}$ under addition. The subsets $H={0,3}$ and $K=\{0\}$ are both subgroups of $G$. 
-  * Notice that the subset $K=\{e_G\}$ is always a subgroup of $G$. We call this a **trivial subgroup**, while a proper subset $H$ is called a **proper subgroup**.
+* **Even Integers:** Consider the set $2\mathbb{Z} = \lbrace\ldots,-4,-2,0,2,4,\ldots\rbrace$. This set forms a group under addition, denoted as $(2\mathbb{Z}, +)$. Since every even integer is also an integer ($2\mathbb{Z} \subseteq \mathbb{Z}$), we say that $(2\mathbb{Z}, +)$ is a subgroup of $(\mathbb{Z}, +)$.
+* **Integers Modulo 6:** Let $G = \mathbb{Z}_{6} = \lbrace0,1,2,3,4,5\rbrace$ under addition. The subsets $H=\lbrace0,3\rbrace$ and $K=\lbrace0\rbrace$ are both subgroups of $G$. 
+  * Notice that the subset $K=\lbrace e_G\rbrace$ is always a subgroup of $G$. We call this a **trivial subgroup**, while a proper subset $H$ is called a **proper subgroup**.
 
 ### Properties of Subgroups
 **Proposition 1:** The identity of $G$ ($e_G$) is in $H$ ($e_H$).
