@@ -299,3 +299,17 @@ If you're interested in a complete proof, see:
 
 > Thomas W. Judson, *Abstract Algebra: Theory and Applications*, Theorem 4.10 (p. 48).
 
+## References
+
+My understanding of group theory and related topics comes primarily from the following excellent textbooks:
+
+- Thomas W. Judson, *Abstract Algebra: Theory and Applications*  
+- Victor Shoup, *A Computational Introduction to Number Theory and Algebra*, Chapter 6: Abelian Groups (pp. 130–165)
+
+---
+
+### See Also
+
+With the basic structure of groups and how they generate elements now established, we can move on to studying how different groups relate to one another.
+
+Continue to **[An Introduction to Group Theory Part 2](/posts/Introduction-To-Group-Theory-Part-2/)**, where we explore homomorphisms, isomorphisms, cosets, and quotient groups.

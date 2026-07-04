@@ -6,6 +6,8 @@ tags: [group-theory, abstract-algebra, seminar]
 math: true
 ---
 
+This is Part 2 of my Group Theory seminar summary. Now that we have covered the foundational definitions, we will dive into how different groups interact with each other and how they can be partitioned. As a reminder, you can check out the [original slides](/assets/pdf/Part_2_Group_Theory.pdf) for the full context.
+
 ## 1. Homomorphisms
 
 After learning what groups are, a natural question is:
