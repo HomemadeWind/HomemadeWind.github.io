@@ -1,8 +1,8 @@
 ---
 title: CSCV Chimera Write-up
-date: 2026-05-12 15:17:00 +0700
+date: 2026-10-20 15:12:00 +0700
 categories: [CTF, Cryptography]
-tags: [lcg, python, writeup]
+tags: [rsa, python, writeup]
 math: true
 mermaid: true
 ---
