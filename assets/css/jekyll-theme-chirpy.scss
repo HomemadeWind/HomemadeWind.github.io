@@ -14,20 +14,19 @@
 
 /* Custom 'Wind' animated gradient background */
 body {
-  /* Tune these four values to change the background palette. */
-  --wind-base: #10141c;
-  --wind-teal: rgba(22, 179, 158, 0.38);
-  --wind-violet: rgba(145, 78, 190, 0.34);
-  --wind-coral: rgba(220, 83, 113, 0.24);
+  /* Tune these values to adjust the grayscale palette. */
+  --wind-base: #d9dcdf;
+  --wind-light: rgba(255, 255, 255, 0.88);
+  --wind-mid: rgba(174, 180, 186, 0.48);
+  --wind-shadow: rgba(119, 126, 134, 0.28);
 
   background:
-    radial-gradient(ellipse at 20% 30%, var(--wind-teal), transparent 44%),
-    radial-gradient(ellipse at 82% 24%, var(--wind-violet), transparent 46%),
-    radial-gradient(ellipse at 68% 88%, var(--wind-coral), transparent 48%),
-    linear-gradient(120deg, var(--wind-base) 0%, #172532 38%, #211b31 72%, #211724 100%) !important;
+    radial-gradient(ellipse at 18% 28%, var(--wind-light), transparent 46%),
+    radial-gradient(ellipse at 82% 24%, var(--wind-mid), transparent 48%),
+    radial-gradient(ellipse at 66% 88%, var(--wind-shadow), transparent 50%),
+    linear-gradient(120deg, #f1f2f3 0%, var(--wind-base) 46%, #e7e9eb 100%) !important;
   background-size: 180% 180%, 180% 180%, 200% 200%, 300% 300% !important;
   animation: windMovement 18s ease-in-out infinite;
-  color: #e0e6ed;
 }
 
 @keyframes windMovement {
