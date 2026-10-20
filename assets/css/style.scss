@@ -1,0 +1,22 @@
+---
+---
+@import "minima";
+
+/* Custom 'Wind' animated gradient background */
+body {
+  background: linear-gradient(-45deg, #101419, #1b222b, #26313e, #141a21) !important;
+  background-size: 400% 400% !important;
+  animation: windMovement 15s ease infinite;
+  color: #e0e6ed;
+}
+
+@keyframes windMovement {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ensure content wrappers are transparent so the gradient shows through */
+.site-header, .page-content, .footer {
+  background-color: transparent !important;
+}
