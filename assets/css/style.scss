@@ -1,11 +1,11 @@
 ---
 ---
 /* Custom 'Wind' animated gradient background */
-body {
+html, body, .page-content, .wrapper, .site-header, .site-footer {
   background: linear-gradient(-45deg, #101419, #1b222b, #26313e, #141a21) !important;
   background-size: 400% 400% !important;
   animation: windMovement 15s ease infinite;
-  color: #e0e6ed;
+  color: #e0e6ed !important;
 }
 
 @keyframes windMovement {
@@ -14,7 +14,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Ensure content wrappers are transparent so the gradient shows through */
-.site-header, .page-content, .footer {
-  background-color: transparent !important;
+/* Keep the header text readable */
+.site-title, .site-nav .page-link, h1, h2, h3, h4, h5, h6, p, li {
+  color: #e0e6ed !important;
 }
