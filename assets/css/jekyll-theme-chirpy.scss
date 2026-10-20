@@ -1,5 +1,17 @@
 ---
 ---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
 /* Custom 'Wind' animated gradient background */
 body {
   background: linear-gradient(-45deg, #101419, #1b222b, #26313e, #141a21) !important;
@@ -14,7 +26,9 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Ensure content wrappers are transparent so the gradient shows through */
-.site-header, .page-content, .footer {
+/* Keep the page chrome transparent so the animated background shows through. */
+.site-header,
+.page-content,
+.footer {
   background-color: transparent !important;
 }
